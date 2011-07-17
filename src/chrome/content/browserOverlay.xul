@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet type="text/css"
+  href="chrome://shortener/skin/browserOverlay.css" ?>
+
+<!DOCTYPE overlay SYSTEM
+  "chrome://shortener/locale/browserOverlay.dtd">
+
+<overlay id="shortener-browser-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript"
+    src="chrome://shortener/content/browserOverlay.js" />
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="shortener-string-bundle"
+      src="chrome://shortener/locale/browserOverlay.properties" />
+  </stringbundleset>
+
+  <popup id="contentAreaContextMenu">
+    <menu id="shortener-context-link" label="&shortener.linkMenu.label;"
+      insertafter="context-copylink">
+      <menupopup onpopupshowing="Shortener.BrowserOverlay.shortenLink();">
+        <menuitem id="shortener-content-link-short" oncommand="Shortener.BrowserOverlay.copyToClipboard(event);"/>
+        <menuitem class="menuitem-qrcode" disabled="true">
+          <hbox flex="1">
+            <spacer flex="1"/>
+            <image id="shortener-content-link-qr"/>
+            <spacer flex="1"/>
+          </hbox>
+        </menuitem>
+      </menupopup>
+    </menu>
+    <menu id="shortener-context-page" label="&shortener.pageMenu.label;"
+      insertafter="context-sendpage">
+      <menupopup onpopupshowing="Shortener.BrowserOverlay.shortenPage(event);">
+        <menuitem id="shortener-content-page-short" oncommand="Shortener.BrowserOverlay.copyToClipboard(event);"/>
+        <menuitem class="menuitem-qrcode" disabled="true">
+          <hbox flex="1">
+            <spacer flex="1"/>
+            <image id="shortener-content-page-qr"/>
+            <spacer flex="1"/>
+          </hbox>
+        </menuitem>
+      </menupopup>
+    </menu>
+  </popup>
+</overlay>

@@ -1,0 +1,5 @@
+content   shortener              jar:chrome/shortener.jar!/content/
+skin      shortener  classic/1.0 jar:chrome/shortener.jar!/skin/
+locale    shortener  en-US       jar:chrome/shortener.jar!/locale/en-US/
+
+overlay chrome://browser/content/browser.xul  chrome://shortener/content/browserOverlay.xul
